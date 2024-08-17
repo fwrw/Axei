@@ -1,0 +1,16 @@
+#!/bin/sh
+echo "Running Pint ..."
+./vendor/bin/pint
+
+echo "Running PHPUnit ..."
+# Certifique-se de que o PHPUnit está instalado e acessível
+[ -f ./vendor/bin/phpunit ] && ./vendor/bin/phpunit || echo "PHPUnit not found. Please install it with Composer."
+
+# Certifique-se de que o script está na pasta correta
+if [ -f "phpunit.xml" ] || [ -f "phpunit.xml.dist" ]; then
+    echo "Running tests using PHPUnit..."
+    ./vendor/bin/phpunit
+else
+    echo "No PHPUnit configuration file found. Skipping tests."
+fi
+
