@@ -25,10 +25,9 @@ class User extends Authenticatable
         'is_online',
     ];
 
-
     public function chatSessions()
     {
-        return $this->hasMany(ChatSessions::class)
+        return $this->hasMany(ChatSessions::class);
     }
 
     public function messages()

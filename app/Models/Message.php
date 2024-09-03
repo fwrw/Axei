@@ -10,7 +10,7 @@ class Message extends Model
     use HasFactory;
 
     protected $fillable = [
-        'chat_session_id', 'user_id', 'message_text', 'found', 'sent_at'
+        'chat_session_id', 'user_id', 'message_text', 'found', 'sent_at',
     ];
 
     public function chatSession()
