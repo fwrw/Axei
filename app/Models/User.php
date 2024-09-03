@@ -17,10 +17,34 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'username',
+        'cpf',
         'email',
         'password',
+        'role',
+        'is_online',
     ];
+
+
+    public function chatSessions()
+    {
+        return $this->hasMany(ChatSessions::class)
+    }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
+
+    public function founds()
+    {
+        return $this->hasMany(Found::class, 'found_by');
+    }
+
+    public function takenFounds()
+    {
+        return $this->hasMany(Found::class, 'taken_by');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
