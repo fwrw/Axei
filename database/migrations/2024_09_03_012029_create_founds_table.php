@@ -18,8 +18,10 @@ return new class extends Migration
             $table->string('location');
             $table->timestamp('found_at');
             $table->foreignId('found_by')->constrained('users', 'id');
+
             $table->boolean('already_taken')->default(false);
             $table->foreignId('taken_by')->nullable()->constrained('users', 'id');
+
             $table->timestamps();
 
             $table->string('image_location');
